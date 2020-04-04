@@ -1,0 +1,18 @@
+language: node_js
+
+node_js:
+  - 'lts/*'
+
+cache:
+  directories:
+    - node_modules
+
+jobs:
+  include:
+    - stage: "Lint"
+      script:
+        - npm run lint -- --quiet
+        - npm run lint:fix
+    - stage: "Test"
+      script:
+        - npm test

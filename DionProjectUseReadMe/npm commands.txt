@@ -1,0 +1,20 @@
+npm install npm@latest
+npm install -g react-native-cli --save
+npm install -g expo-cli
+npm install example-package-name --no-audit
+npm install <MISSING DEPENDANCY> --save
+npm install --save react-native-video --no-audit
+react-native link react-native-video
+npm install --save expo-av 
+npm install react-native-youtube -S
+npm install react-navigation -S
+npm install react-native-safe-area-view -S
+expo r -c (clear cache)
+npm run clear-cache
+npm install --save react-native-webview
+react-native link react-native-webview
+pod install (need cocoapods)
+npm install -S reactjs-popup
+npm install -g npm
+npm install -S react-transition-group
+npm install -S react-particles-js
