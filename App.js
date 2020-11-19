@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, AppState } from 'react-native';
+import ViewPager from '@react-native-community/viewpager';
 import AppNavigator from './src/navigation/AppNavigator';
 import LoadingScreen from './src/screens/LoadingScreen';
 import DatabaseManager from './src/manager/DatabaseManager';

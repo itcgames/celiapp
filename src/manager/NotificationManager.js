@@ -21,7 +21,7 @@ export default class NotificationManager
         {
             NotificationManager.instance = new NotificationManager();
             this.instance.initialize();
-            this.instance.scheduleNotification();
+            //this.instance.scheduleNotification();
         }
         return this.instance;
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, Animated, StyleSheet, Easing , Dimensions } from 'react-native';
+import { Text, View, Image, Animated, StyleSheet, Easing, Dimensions } from 'react-native';
 
 import Constants from 'expo-constants';
 import AchievementRecordManager from '../manager/buddyManager/AchievementRecordManager';
@@ -12,7 +12,7 @@ export default class LoadingScreen extends React.Component {
   }
 
   componentDidMount() {
-    //this.StartImageRotateFunction();
+    this.StartImageRotateFunction();
   }
 
   StartImageRotateFunction() {
@@ -30,7 +30,7 @@ export default class LoadingScreen extends React.Component {
       return null;
     }
 
-      const RotateData = this.RotateValueHolder.interpolate({
+    const RotateData = this.RotateValueHolder.interpolate({
       inputRange: [0, 1],
       outputRange: ['0deg', '360deg'],
     });
@@ -41,7 +41,7 @@ export default class LoadingScreen extends React.Component {
         justifyContent: 'space-around',
         alignItems: 'center'
       }}>
-        <Text style={{fontSize: 40, fontWeight: 'bold'}}>CeliApp</Text>
+        <Text style={{ fontSize: 40, fontWeight: 'bold' }}>CeliApp</Text>
         <Animated.Image
           style={{
             width: 150,
@@ -50,8 +50,8 @@ export default class LoadingScreen extends React.Component {
           }}
           source={require('../assets/images/celiapp_icon_new.png')}
         />
-        <Text style={{color: 'green'}}>Glutenfree is what you want to be</Text>
-        <Text style={{fontSize: 12, color: 'gray'}}>Version {Constants.manifest.version}</Text>
+        <Text style={{ color: 'green' }}>Glutenfree is what you want to be</Text>
+        <Text style={{ fontSize: 12, color: 'gray' }}>Version {Constants.manifest.version}</Text>
       </View>
     );
   }
