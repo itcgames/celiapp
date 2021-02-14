@@ -30,6 +30,7 @@ import Achievements from "../components/Glutenbuddy/screens/Achievements";
 import ChallengesTest from "../components/Glutenbuddy/screens/ChallengesTest";
 
 // required for Navigation:
+import QuizMainScreen from "../screens/QuizMainScreen";
 import EvaluationScreen from "../screens/EvaluationScreen";
 import HomeScreen from "../screens/HomeScreen";
 import CalendarScreen from "../screens/CalendarScreen";
@@ -144,7 +145,7 @@ export default class GlutenbuddyRoot extends React.Component {
             <EmotionDisplayIcon style={styles.emotiondisplay}></EmotionDisplayIcon>
           </TouchableOpacity>
           </View>
-          
+
           <MenuButton navigation={this.props.navigation} />
         </ImageBackground>
       </View>
@@ -166,6 +167,9 @@ const RootStack = createStackNavigator({
   ChallengesTest: ChallengesTest,
   Achievements: {
     screen: Achievements,
+  },
+  QuizMain: {
+    screen: QuizMainScreen,
   },
   AddSymptom: {
     screen: SymptomTrackerScreen,

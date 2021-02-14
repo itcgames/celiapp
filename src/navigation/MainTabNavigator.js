@@ -4,6 +4,7 @@ import {
 } from "react-navigation-stack";
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
+import QuizMainScreen from "../screens/QuizMainScreen";
 import TabBarIcon from "../components/TabBarIcon";
 import EvaluationScreen from "../screens/EvaluationScreen";
 import HomeScreen from "../screens/HomeScreen";
@@ -27,6 +28,7 @@ import Wardrobe from "../components/Glutenbuddy/screens/Wardrobe";
 import Challenges from "../components/Glutenbuddy/screens/Challenges";
 import Achievements from "../components/Glutenbuddy/screens/Achievements";
 import ChallengesTest from "../components/Glutenbuddy/screens/ChallengesTest";
+import QuestionScreen from "../components/Quiz/QuestionScreen";
 
 const EvaluationStack = createStackNavigator({
   Evaluation: EvaluationScreen,
@@ -80,7 +82,7 @@ const TabNavStack = createMaterialTopTabNavigator(
         ),
       },
     },
-*/  
+*/
   },
   {
     initialRouteName: "Glutenbuddy",
@@ -107,6 +109,12 @@ export default createStackNavigator({
       header: null,
       title: ''
     },
+  },
+  QuizMain: {
+    screen: QuizMainScreen,
+  },
+  TakeQuiz: {
+    screen: QuestionScreen,
   },
   AddSymptom: {
     screen: SymptomTrackerScreen,

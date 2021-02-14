@@ -37,13 +37,16 @@ constructor(props) {
                 <ActionButton.Item buttonColor='#9b59b6' title={LanguageManager.getInstance().getText("ADD_EMOTION")} onPress={() => this.props.navigation.navigate('AddEmote', {'selectedDateAndTime' : this.getEventDate() })}>
                   <Icon.Ionicons name="md-happy" style={styles.actionButtonIcon} />
                 </ActionButton.Item>
-            <ActionButton.Item buttonColor='#3498db' title={LanguageManager.getInstance().getText("ADD_MEAL")} onPress={() => this.props.navigation.navigate('AddMeal', {'selectedDateAndTime' : this.getEventDate() })}>
+                <ActionButton.Item buttonColor='#3498db' title={LanguageManager.getInstance().getText("ADD_MEAL")} onPress={() => this.props.navigation.navigate('AddMeal', {'selectedDateAndTime' : this.getEventDate() })}>
                   <Icon.Ionicons name="md-restaurant" style={styles.actionButtonIcon} />
                 </ActionButton.Item>
                 <ActionButton.Item buttonColor='#1abc9c' title={LanguageManager.getInstance().getText("ADD_SYMPTOM")} onPress={() => this.props.navigation.navigate('AddSymptom', {'selectedDateAndTime' : this.getEventDate() })}>
                   <Icon.Ionicons name="md-medkit" style={styles.actionButtonIcon} />
                 </ActionButton.Item>
-              </ActionButton>                
+                <ActionButton.Item buttonColor='#6c63ff' title={LanguageManager.getInstance().getText("QUIZ")} onPress={() => {this.props.navigation.navigate('QuizMain', {'selectedDateAndTime' : this.getEventDate() }), console.log("selectedQuiz")}}>
+                  <Icon.Ionicons name="help-circle-outline" style={styles.actionButtonIcon} />
+                </ActionButton.Item>
+              </ActionButton>
       );
     }
 
@@ -60,6 +63,9 @@ constructor(props) {
         </ActionButton.Item>
         <ActionButton.Item buttonColor='#1abc9c' title={LanguageManager.getInstance().getText("ADD_SYMPTOM")} onPress={() => this.props.navigation.navigate('AddSymptom', { 'selectedDateAndTime': this.getEventDate()  })}>
           <Icon.Ionicons name="md-medkit" style={styles.actionButtonIcon} />
+        </ActionButton.Item>
+        <ActionButton.Item buttonColor='#6c63ff' title={LanguageManager.getInstance().getText("QUIZ")} onPress={() => {this.props.navigation.navigate('QuizMain', {'selectedDateAndTime' : this.getEventDate() }), console.log("selectedQuiz")}}>
+          <Icon.Ionicons name="help-circle-outline" style={styles.actionButtonIcon} />
         </ActionButton.Item>
       </ActionButton>
     );
