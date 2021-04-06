@@ -15,6 +15,7 @@ export default {
 	mainscreenColor: '#e91f64',
 	symptom: '#1DBBA0',
 	meal: '#3398DE',
+	mealDatePickerChevron: '#91c7ed',
 	emotion: '#9958B7',
 	gip: '#FF8D1E'
 };

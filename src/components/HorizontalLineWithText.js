@@ -4,14 +4,15 @@ export default class HorizontalLineWithText extends React.Component{
     render(){
         return(
         <View style={{
-            borderBottomColor: 'black',
+            borderBottomColor: this.props.borderColor || 'black',
+			borderBottomWidth: 2,
             marginBottom: 8,
             marginTop: 20,
-            borderBottomWidth: StyleSheet.hairlineWidth,
+			marginLeft: 100,
+			marginRight: 100
         }}>
             <Text style={styles.TextStyle}>{this.props.text}</Text>
         </View>
-
         )
     }
 }
@@ -21,5 +22,8 @@ var styles = StyleSheet.create({
     TextStyle:{
        fontSize: 15,
        fontWeight: 'bold',
+	   color: '#616161',
+	   textAlign: 'center',
+	   marginBottom: 2
     }
    });

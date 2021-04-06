@@ -36,8 +36,7 @@ export default class TimePicker extends React.Component {
         return(
             <View>
               <View style={styles.rowContainer}>
-                <Text style={styles.occuredText}>{LanguageManager.getInstance().getText(this.props.textString)} {hourString + ":" + minuteString}</Text>
-                <Button title={LanguageManager.getInstance().getText("SELECT_TIME")} onPress={this.showDateTimePicker} />
+                	<Button color={'#818181'} title={hourString + ":" + minuteString} onPress={this.showDateTimePicker} />
                 </View>
               <DateTimePicker
                 isVisible={this.state.isDateTimePickerVisible}

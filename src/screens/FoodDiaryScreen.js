@@ -32,7 +32,6 @@ export default class FoodDiaryScreen extends React.Component
 			backgroundColor: Colors.meal
 		},
 		headerTitle:<ImageHeader logo={HeaderImage.MEAL} width={40} color={'#ffffff'}/>,
-
         headerLeft: <HeaderBackButton tintColor={'#ffffff'} label={' '} onPress={() => navigation.state.params.onCancelPressed()}/>
     })
 
@@ -267,9 +266,9 @@ export default class FoodDiaryScreen extends React.Component
         return (
             //extraScrollHeight not supoorted out-of-the-box in android see here https://github.com/AyushAppin/react-native-keyboard-aware-scroll-view
             <KeyboardAwareScrollView extraScrollHeight={20} scrollEnabled={true} enableAutomaticScroll={true}>
-                <HorizontalLineWithText text = {LanguageManager.getInstance().getText("DATE")}/>
-                <DayChooser ref={component => this._dayChooser = component} date = {this.state.selectedDateAndTime} onDateChanged={this.dateEditedHandler}/>
-                <HorizontalLineWithText text = {LanguageManager.getInstance().getText("TIME")}/>
+                <HorizontalLineWithText borderColor={Colors.meal} text = {LanguageManager.getInstance().getText("DATE")}/>
+                <DayChooser color={Colors.meal} disabledColor={Colors.mealDatePickerChevron} ref={component => this._dayChooser = component} date = {this.state.selectedDateAndTime} onDateChanged={this.dateEditedHandler}/>
+                <HorizontalLineWithText borderColor={Colors.meal} text = {LanguageManager.getInstance().getText("TIME")}/>
                 <TimePicker ref={component => this._timePicker = component} textString = "EATEN_AT" onTimeChanged={this.timeEditedHandler}/>
                 <HorizontalLineWithText text = {LanguageManager.getInstance().getText("TYPES")}/>
                 <FoodDiaryTagEdit ref={component => this._meal = component} all={meals} selected={this.state.selectedMealKey} isExclusive={true} onTagChanged={this.mealChangedHandler}/>

@@ -1,14 +1,14 @@
 
 import React from 'react';
-import {Text, View, Button, StyleSheet, Alert} from 'react-native';
+import {Text, View, Button, StyleSheet} from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import * as Icon from '@expo/vector-icons';
 
 var daysDiffToProp = 0
 
 export default class DayChooser extends React.Component{
 
-
-
-    constructor(props){
+	constructor(props){
         super(props);
         this.state = {
             currDate: this.props.date,
@@ -47,13 +47,18 @@ export default class DayChooser extends React.Component{
                 alignItems:'stretch'
                 }}>
                 <View>
-                    <Button buttonStyle={styles.button} title = "  <  "  onPress={() => this.changeDay(false)}/>
+					<TouchableOpacity onPress={() => this.changeDay(false)}>
+                		<Icon.Ionicons name={'chevron-back-outline'} size={30} color={this.props.color}/>
+            		</TouchableOpacity>
                 </View>
                 <View>
                     <Text style ={styles.dateText}> {this.state.currDateString} </Text>
                 </View>
-                <View>      
-                    <Button disabled={disableFutureButton} buttonStyle={styles.button} title = "  >  " onPress={() => this.changeDay(true)}/>
+                <View>
+					<TouchableOpacity disabled={disableFutureButton} onPress={() => this.changeDay(true)}>
+                		<Icon.Ionicons name={'chevron-forward-outline'} size={30} 
+							color={disableFutureButton ? this.props.disabledColor : this.props.color }/>
+            		</TouchableOpacity>
                 </View>
             </View>
         )
@@ -63,12 +68,6 @@ export default class DayChooser extends React.Component{
 var styles = StyleSheet.create({
     dateText:{
         fontSize: 20,
-    },
-    button: {
-        fontSize: 30,
-        backgroundColor: '#00aeef',
-        borderColor: 'red',
-        borderWidth: 5,
-        borderRadius: 15       
-     }
+		color: '#818181'
+    }
 });
