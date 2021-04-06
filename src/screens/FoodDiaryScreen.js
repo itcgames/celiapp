@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { View, Keyboard, TouchableOpacity, StyleSheet} from 'react-native';
+import { View, Keyboard, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import Dialog from "react-native-dialog";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { HeaderBackButton } from 'react-navigation-stack'
@@ -22,6 +22,22 @@ import CeliLogger from '../analytics/analyticsManager';
 import Interactions from '../constants/Interactions';
 import Colors from '../constants/Colors';
 import ImageHeader, { HeaderImage } from '../components/ImageHeader';
+
+import breakfastselected from '../assets/images/vectoricons/selected/breakfast.svg';
+import lunchselected from '../assets/images/vectoricons/selected/lunch.svg';
+import dinnerselected from '../assets/images/vectoricons/selected/dinner.svg';
+import snackselected from '../assets/images/vectoricons/selected/snack.svg';
+import glutenselected from '../assets/images/vectoricons/selected/gluten.svg';
+import noglutenselected from '../assets/images/vectoricons/selected/nogluten.svg';
+import noideaselected from '../assets/images/vectoricons/selected/noidea.svg';
+
+import breakfast from '../assets/images/vectoricons/breakfast.svg';
+import lunch from '../assets/images/vectoricons/lunch.svg';
+import dinner from '../assets/images/vectoricons/dinner.svg';
+import snack from '../assets/images/vectoricons/snack.svg';
+import gluten from '../assets/images/vectoricons/gluten.svg';
+import nogluten from '../assets/images/vectoricons/nogluten.svg';
+import noidea from '../assets/images/vectoricons/noidea.svg';
 
 export default class FoodDiaryScreen extends React.Component
 {
@@ -261,8 +277,18 @@ export default class FoodDiaryScreen extends React.Component
     render() {
 
         const marginToUse = 0;// ((this.state.keyboardOpen) ? 300 : 0);
-        const tags = [LanguageManager.getInstance().getText("GLUTEN"), LanguageManager.getInstance().getText("NO_GLUTEN"), LanguageManager.getInstance().getText("UNSURE")];
-        const meals = [LanguageManager.getInstance().getText("BREAKFAST"), LanguageManager.getInstance().getText("LUNCH"), LanguageManager.getInstance().getText("DINNER"), LanguageManager.getInstance().getText("SNACK")];
+        const tags = 
+		[
+			{tag: LanguageManager.getInstance().getText("GLUTEN"), icon: gluten, iconselected: glutenselected },
+			{tag: LanguageManager.getInstance().getText("NO_GLUTEN"), icon: nogluten, iconselected: noglutenselected },
+			{tag: LanguageManager.getInstance().getText("UNSURE"), icon: noidea, iconselected: noideaselected}
+		];
+        const meals = 
+		[
+			{tag: LanguageManager.getInstance().getText("BREAKFAST"), icon: breakfast, iconselected: breakfastselected}, 
+			{tag: LanguageManager.getInstance().getText("LUNCH"), icon: lunch, iconselected: lunchselected},
+			{tag: LanguageManager.getInstance().getText("DINNER"), icon: dinner, iconselected: dinnerselected}, //
+			{tag: LanguageManager.getInstance().getText("SNACK"), icon: snack, iconselected: snackselected}]; //md-pizza-outline
         return (
             //extraScrollHeight not supoorted out-of-the-box in android see here https://github.com/AyushAppin/react-native-keyboard-aware-scroll-view
             <KeyboardAwareScrollView extraScrollHeight={20} scrollEnabled={true} enableAutomaticScroll={true}>
@@ -270,15 +296,29 @@ export default class FoodDiaryScreen extends React.Component
                 <DayChooser color={Colors.meal} disabledColor={Colors.mealDatePickerChevron} ref={component => this._dayChooser = component} date = {this.state.selectedDateAndTime} onDateChanged={this.dateEditedHandler}/>
                 <HorizontalLineWithText borderColor={Colors.meal} text = {LanguageManager.getInstance().getText("TIME")}/>
                 <TimePicker ref={component => this._timePicker = component} textString = "EATEN_AT" onTimeChanged={this.timeEditedHandler}/>
-                <HorizontalLineWithText text = {LanguageManager.getInstance().getText("TYPES")}/>
-                <FoodDiaryTagEdit ref={component => this._meal = component} all={meals} selected={this.state.selectedMealKey} isExclusive={true} onTagChanged={this.mealChangedHandler}/>
-                <HorizontalLineWithText text = {LanguageManager.getInstance().getText("MEAL_NAME")}/>
+                
+				<View>
+					<HorizontalLineWithText borderColor={Colors.meal} text = {LanguageManager.getInstance().getText("TYPES")}/>
+					<View style={styles.informationBackground}>
+						<TouchableOpacity
+						style={[styles.touchableOpacityInfoButton, {backgroundColor:Colors.meal}]} onPress={() => 
+						console.log('open info textballoon!')}>
+							<Text style={styles.informationForeground}>i</Text>
+						</TouchableOpacity>
+					</View>
+				</View>
+
+				<FoodDiaryTagEdit ref={component => this._meal = component} all={meals} selected={this.state.selectedMealKey} isExclusive={true} onTagChanged={this.mealChangedHandler}/>
+
+				<HorizontalLineWithText text = {LanguageManager.getInstance().getText("MEAL_NAME")}/>
                 <TextInputSingleLine
                   ref={component => this._name = component}
                   onTextChanged={this.nameEditedHandler}
                   style={{Top: 10}}
                   placeholderText= {LanguageManager.getInstance().getText("MEAL_NAME_PLACEHOLDER")}
                 />
+
+
                 <HorizontalLineWithText text = {LanguageManager.getInstance().getText("MEAL_NOTES")} style={{Top: 10}}/>
                 <NoteEdit
                   ref={component => this._noteEdit = component}
@@ -330,4 +370,27 @@ export default class FoodDiaryScreen extends React.Component
         textAlign: 'center',
         margin: 10
      },
-    });
+
+		touchableOpacityInfoButton:
+		{
+			width: 30,
+			height: 30,
+			borderRadius: 15			
+		},
+
+		informationBackground:
+		{		
+			right: 100,
+			bottom: 15,
+			position: 'absolute',
+		},
+
+		informationForeground:
+		{
+			textAlign: 'center',
+			fontSize: 25,
+			color: '#fff',
+			fontWeight: 'bold'
+		}
+
+});

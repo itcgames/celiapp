@@ -107,7 +107,7 @@ const Entry = ({title, subtitle, image, color, onAddButtonClicked, navigationNam
 	
 	<View style={styles.rightWrapper}>
 		<TouchableOpacity onPress={() => onAddButtonClicked(navigationName)}>
-			<Icon.Ionicons  style={styles.addIcon} color={color} size={35} name={"md-add"}/>
+			<Icon.Ionicons  color={color} size={35} name={"md-add"}/>
 		</TouchableOpacity>
 	</View>
 </View>

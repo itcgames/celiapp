@@ -24,6 +24,6 @@ var styles = StyleSheet.create({
        fontWeight: 'bold',
 	   color: '#616161',
 	   textAlign: 'center',
-	   marginBottom: 2
+	   marginBottom: 5
     }
-   });
+});
