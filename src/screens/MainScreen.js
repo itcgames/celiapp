@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
-import ImageHeader from './ImageHeader';
+import CeliAppHeader from '../components/CeliAppHeader';
 import Colors from '../constants/Colors'
 
 import symptomImage from '../assets/images/stethoscope_white.svg';
@@ -19,7 +19,8 @@ export default class MainScreen extends React.Component {
 	
 	static navigationOptions = ({ navigation }) => 
 	({
-    	headerTitle:<ImageHeader color={Colors.mainscreenColor}/>
+    	headerTitle:<CeliAppHeader logo={'celiapp'} image={require('../assets/images/glutenfree.png')} 
+			title={'Celiapp'} width={27} height={27} color={Colors.mainscreenColor}/>
 	});
 
 	constructor(props) {

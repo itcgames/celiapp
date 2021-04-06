@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { View, Button, Alert, ScrollView, Keyboard, TouchableOpacity, StyleSheet} from 'react-native';
+import { View, Keyboard, TouchableOpacity, StyleSheet} from 'react-native';
 import Dialog from "react-native-dialog";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { HeaderBackButton } from 'react-navigation-stack'
@@ -15,19 +15,25 @@ import FoodDiaryTagEdit from '../components/FoodDiary/FoodDiaryTagEdit'
 import FoodDiaryImageEdit from '../components/FoodDiary/FoodDiaryImageEdit'
 import LanguageManager from '../manager/LanguageManager';
 import GlutonManager from '../manager/GlutonManager';
-import HeaderSaveButton from '../components/HeaderSaveButton';
 import GearManager from '../manager/GearManager';
 import AchievementManager from '../manager/buddyManager/AchievementManager';
 import EntryManager from '../manager/buddyManager/EntryManager';
 import CeliLogger from '../analytics/analyticsManager';
 import Interactions from '../constants/Interactions';
+import Colors from '../constants/Colors';
+import ImageHeader, { HeaderImage } from '../components/ImageHeader';
 
-
-export default class FoodDiaryScreen extends React.Component{
+export default class FoodDiaryScreen extends React.Component
+{
     static navigationOptions = ({navigation}) => ({
-        title: LanguageManager.getInstance().getText("ADD_MEAL"),
-        headerLeft: <HeaderBackButton onPress={() => navigation.state.params.onCancelPressed()}/>,
-        headerRight: <HeaderSaveButton onPress={() => navigation.state.params.onOkPressed(true)}/>
+		headerTintColor: '#ffffff',
+		headerStyle: 
+		{
+			backgroundColor: Colors.meal
+		},
+		headerTitle:<ImageHeader logo={HeaderImage.MEAL} width={40} color={'#ffffff'}/>,
+
+        headerLeft: <HeaderBackButton tintColor={'#ffffff'} label={' '} onPress={() => navigation.state.params.onCancelPressed()}/>
     })
 
     constructor(props) {

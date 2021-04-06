@@ -55,14 +55,14 @@ import Interactions from '../constants/Interactions';
 import { showMessage } from "react-native-flash-message";
 import DatabaseManager from "../manager/DatabaseManager";
 import TabBarIcon from "../components/TabBarIcon";
-import ImageHeader from './ImageHeader';
+import CeliAppHeader from '../components/CeliAppHeader';
 import Color from '../constants/Colors'
 
 @observer
 export default class GlutenbuddyRoot extends React.Component {
 
   static navigationOptions = ({ navigation }) => ({
-    	headerTitle:<ImageHeader color={Color.mainscreenColor}/>
+    	headerTitle:<CeliAppHeader color={Color.mainscreenColor}/>
 	});
 
   componentDidMount() {
