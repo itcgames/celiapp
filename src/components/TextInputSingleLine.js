@@ -42,8 +42,7 @@ const styles = StyleSheet.create({
     },
     Text:{
             borderWidth: 2,
-            borderColor: 'grey',
-            borderRadius: 20,
+            borderColor: '#3398de',
             marginLeft: 10,
             marginRight: 10,
             alignContent: 'space-around',

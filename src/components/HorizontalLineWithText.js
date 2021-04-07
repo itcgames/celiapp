@@ -20,8 +20,7 @@ export default class HorizontalLineWithText extends React.Component{
 
 var styles = StyleSheet.create({
     TextStyle:{
-       fontSize: 15,
-       fontWeight: 'bold',
+       fontSize: 20,
 	   color: '#616161',
 	   textAlign: 'center',
 	   marginBottom: 5

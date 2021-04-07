@@ -310,7 +310,23 @@ export default class FoodDiaryScreen extends React.Component
 
 				<FoodDiaryTagEdit ref={component => this._meal = component} all={meals} selected={this.state.selectedMealKey} isExclusive={true} onTagChanged={this.mealChangedHandler}/>
 
-				<HorizontalLineWithText text = {LanguageManager.getInstance().getText("MEAL_NAME")}/>
+				<HorizontalLineWithText borderColor={Colors.meal} text = {LanguageManager.getInstance().getText("IMAGE")}/>
+                <View style={{alignItems: 'center'}}>
+                    <FoodDiaryImageEdit navigation = {this.props.navigation} onPictureTaken={(image) => this.setState({photo: image})}/>
+                </View>
+
+				<HorizontalLineWithText borderColor={Colors.meal} text = {LanguageManager.getInstance().getText("TAGS")}/>
+                <FoodDiaryTagEdit ref={component => this._class = component} all={tags} selected={this.state.selectedClassKey} isExclusive={true} onTagChanged={this.classChangedHandler}/>
+
+				<Text style={{
+					fontSize: 20,
+					color: '#616161',
+					textAlign: 'center',
+					marginTop: 25,
+					marginBottom: 2
+				}}>
+					{LanguageManager.getInstance().getText("MEAL_NAME")}
+				</Text>
                 <TextInputSingleLine
                   ref={component => this._name = component}
                   onTextChanged={this.nameEditedHandler}
@@ -318,8 +334,16 @@ export default class FoodDiaryScreen extends React.Component
                   placeholderText= {LanguageManager.getInstance().getText("MEAL_NAME_PLACEHOLDER")}
                 />
 
-
-                <HorizontalLineWithText text = {LanguageManager.getInstance().getText("MEAL_NOTES")} style={{Top: 10}}/>
+                {/* <HorizontalLineWithText text = {LanguageManager.getInstance().getText("MEAL_NOTES")} style={{Top: 10}}/> */}
+				<Text style={{
+					fontSize: 20,
+					color: '#616161',
+					textAlign: 'center',
+					marginTop: 25,
+					marginBottom: 2
+				}}>
+					{LanguageManager.getInstance().getText("MEAL_NOTES")}
+				</Text>
                 <NoteEdit
                   ref={component => this._noteEdit = component}
                   note={this.state.symptomEntryNote}
@@ -327,16 +351,10 @@ export default class FoodDiaryScreen extends React.Component
                   style={{Top: 10}}
                   placeholderText= {LanguageManager.getInstance().getText("MEAL_NOTES_PLACEHOLDER")}
                 />
-                <HorizontalLineWithText text = {LanguageManager.getInstance().getText("TAGS")}/>
-                <FoodDiaryTagEdit ref={component => this._class = component} all={tags} selected={this.state.selectedClassKey} isExclusive={true} onTagChanged={this.classChangedHandler}/>
-                <HorizontalLineWithText text = {LanguageManager.getInstance().getText("IMAGE")}/>
-                <View style={{alignItems: 'center'}}>
-                    <FoodDiaryImageEdit navigation = {this.props.navigation} onPictureTaken={(image) => this.setState({photo: image})}/>
-                </View>
-                <HorizontalLineWithText text = {LanguageManager.getInstance().getText("RATING")}/>
+                {/* <HorizontalLineWithText text = {LanguageManager.getInstance().getText("RATING")}/>
                 <View style={{alignItems: 'center'}}>
                     <FoodDiaryRatingBar ref={component => this._rating = component}  onRatingChanged={this.ratingEditedHandler}/>
-                </View> 
+                </View>  */}
                 <View>
                     <Dialog.Container visible={this.state.saveAsEmptyFoodDialogVisible}>
                         <Dialog.Title>{LanguageManager.getInstance().getText("SAVE_EMPTY_FOOD")}</Dialog.Title>

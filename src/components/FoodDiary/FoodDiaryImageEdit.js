@@ -2,9 +2,8 @@ import React from 'react';
 import {TouchableOpacity, Image, StyleSheet} from 'react-native';
 import * as Icon from '@expo/vector-icons';
 import Colors from '../../constants/Colors';
-import LanguageManager from '../../manager/LanguageManager';
-
-
+import camera from '../../assets/images/vectoricons/camera.svg';
+import { SvgXml } from 'react-native-svg';
 
 export default class FoodDiaryImageEdit extends React.Component {
 
@@ -25,7 +24,12 @@ export default class FoodDiaryImageEdit extends React.Component {
             if (this.state.snapshot == null) {
                 return (
                     <TouchableOpacity style={styles.container} onPress={() => this.props.navigation.navigate('Camera', {cb: (pic) => this.onPictureTaken(pic)})}>
-                        <Icon.Ionicons name='md-camera' color={this.props.focused ? Colors.tabIconSelected : Colors.tabIconDefault} size={80} />
+						<SvgXml 
+							xml={camera}
+							width={80}
+							height={80}
+						/>
+                       
                     </TouchableOpacity> 
                 );
             }
