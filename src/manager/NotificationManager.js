@@ -46,6 +46,8 @@ async function registerForPushNotificationsAsync() {
   }
 };
 
+
+
 export default class NotificationManager {
   
     static getInstance()
